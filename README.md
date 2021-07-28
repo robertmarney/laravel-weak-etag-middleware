@@ -1,21 +1,4 @@
 # laravel-etag-middleware
-A Laravel middleware for adding ETags to HTTP requests to improve response times
+A Laravel middleware for adding Weak ETags to HTTP requests to improve response times
 
-[![Build Status](https://travis-ci.org/matthewbdaly/laravel-etag-middleware.svg?branch=master)](https://travis-ci.org/matthewbdaly/laravel-etag-middleware)
-[![Coverage Status](https://coveralls.io/repos/github/matthewbdaly/laravel-etag-middleware/badge.svg?branch=master)](https://coveralls.io/github/matthewbdaly/laravel-etag-middleware?branch=master)
-[![StyleCI](https://styleci.io/repos/81254291/shield?branch=master)](https://styleci.io/repos/81254291)
-
-Installation
-------------
-
-Run the following command to install the package:
-
-```bash
-composer require matthewbdaly/laravel-etag-middleware
-```
-
-Then just include this in your `app/Http/Kernel.php` in the appropriate place where you want to import the middleware:
-
-```php
-\Matthewbdaly\ETagMiddleware\ETag::class
-```
+Weak ETags allow for gzip compression on Nginx to still validate
