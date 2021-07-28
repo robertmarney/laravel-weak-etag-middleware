@@ -38,7 +38,8 @@ class ETag
         $etag = md5(json_encode($response->headers->get('origin')).$response->getContent());
 
         // Load the Etag sent by client
-        $requestEtag = str_replace('"', '', $request->getETags());
+        $requestEtag = str_replace('W/"', '', $request->getETags());
+        $requestEtag = str_replace('"', '', $requestEtag);
 
         // Check to see if Etag has changed
         if ($requestEtag && $requestEtag[0] == $etag) {
@@ -46,7 +47,7 @@ class ETag
         }
 
         // Set Etag
-        $response->setEtag($etag);
+        $response->setEtag($etag, true);
 
         // Set back to original method
         $request->setMethod($initialMethod); // set back to original method
